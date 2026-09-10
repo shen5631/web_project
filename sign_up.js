@@ -32,6 +32,20 @@ async function user_insert(user) {
   }
 }
 
+async function check_id(params) {
+  let user_id = document.getElementById("user_id").value;
+  const users_id = await user_id_select();
+  let user_id_list = [];
+  for (const user_id of users_id) {
+    user_id_list.push(user_id.user_id);
+  }
+  if (user_id_list.indexOf(user_id) != -1) {
+    alert("이미 존재하는 아이디 입니다!");
+  } else {
+    alert("사용가능한 아이디 입니다!");
+  }
+}
+
 async function accession() {
   const user = {
     id: document.getElementById("user_id").value,
@@ -62,7 +76,7 @@ async function accession() {
   } else if (null_cnt != 0) {
     alert("입력창에 마저 입력해주세요!");
   } else if (user_id_list.indexOf(user.id) != -1) {
-    alert("아이디를 다시 입력해주세요!");
+    alert("이미 존재하는 아이디 입니다!");
   } else {
     await user_insert(user);
   }
