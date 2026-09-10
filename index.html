@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <script>
+        const DB_URL = "https://woobttpshqvkjnjvhvis.supabase.co";
+        const DB_KEY = "sb_publishable_Xx2zd7IeOrekFvPFYQLrXQ_0l61qoNe";
+
+        const DB = window.supabase.createClient(DB_URL,DB_KEY);
+
+        async function select_test() {
+            const {data, error} = await DB.from("user").select("*");
+
+            if(error){
+                console.log("에러 : ",error);
+            }
+            else{
+                console.log("데이터 : ",data);
+            }
+        }
+
+        async function insert_test() {
+            const {data,error} = await DB.from("user").insert([{
+                user_id : "shen5631",
+                user_pw : "shen56312009",
+                user_name : "신홍명",
+                user_num : "2206",
+                user_auth : "false"
+            }])
+
+            if(error){
+                console.log("에러 : ",error);
+            }
+        }
+
+        test();
+
+    </script>
+</body>
+</html>
