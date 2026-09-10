@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="sign_in.js"></script>
   </head>
   <body>
     <header class="nav">
@@ -23,6 +25,7 @@
             type="text"
             placeholder="아이디를 입력해주세요"
             class="input"
+            id="user_id"
           />
         </div>
         <div>
@@ -31,9 +34,10 @@
             type="password"
             placeholder="비밀번호를 입력해주세요"
             class="input"
+            id="user_pw"
           />
         </div>
-        <button class="ga">로그인</button>
+        <button class="ga" onclick="login()">로그인</button>
         <div class="check">
           <span class="check_t1">계정이 없으신가요?</span
           ><a href="sign_up.html" class="check_login">회원가입</a>

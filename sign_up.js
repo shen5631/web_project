@@ -79,5 +79,7 @@ async function accession() {
     alert("이미 존재하는 아이디 입니다!");
   } else {
     await user_insert(user);
+    location.href = "sign_in.html";
+    alert("회원가입이 완료되었습니다! 로그인을 해주세요!");
   }
 }
