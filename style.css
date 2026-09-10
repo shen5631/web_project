@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.sign_up{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 47px;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+
+    background-color: #d9d9d9;
+    color : black;
+    border-radius: 57px;
+    width: 340px;
+    height: 97px;
+
+}
+.btn1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 65px;
+
+}
+a{
+    text-decoration: none;
+}
+.t1{
+    font-size: 64px;
+}
+.t2{
+    font-size: 32px;
+}
+.up_t2{
+    display: flex;
+    flex-direction: column;
+    font-size: 32px;
+    justify-content: center;
+}
+.input_id{
+    width: 614.811px;
+    height: 93.1px;
+    border-radius: 15px;
+    border: 1px solid #000;
+    background: #D9D9D9;
+    color: #606060;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 45px;
+}
+
+.input{
+    width: 850.743px;
+    height: 93.1px;
+    border-radius: 15px;
+    border: 1px solid #000;
+    background: #D9D9D9;
+    color: #606060;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 45px;
+}
+
+.up_btn1{
+    border-radius: 15px;
+    border: 1px solid #000;
+    background: #D9D9D9;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 222.054px;
+    height: 93.1px;
+}
+.name_num{
+    display: flex;
+    flex-direction: row;
+    gap: 46px;
+}
+.nn{
+    width: 402.472px;
+    height: 93.1px;
+    border-radius: 15px;
+    border: 1px solid #000;
+    background: #D9D9D9;
+    color: #606060;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.ga{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 366.389px;
+    height: 91.906px;
+    border-radius: 22px;
+    border: 1px solid #000;
+    background: #D9D9D9;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 50px;
+    flex-direction: column;
+}
