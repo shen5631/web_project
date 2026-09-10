@@ -184,6 +184,18 @@ main{
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+.sign_box1{
+    width: 696px;
+    height: 755px;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    background: #FFF;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 
 }
 .sign_text{

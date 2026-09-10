@@ -1,53 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-        <header class="nav">
-            <div class="logo">미림 동아리 홍보</div>
-            <nav class="nav_sign">
-                <a href="sign_in.html" class="login">로그인</a>
-                <a href="sign_up.html" class="logup">회원가입</a>
-            </nav>
-        </header>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="sign_up.js"></script>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="logo">미림 동아리 홍보</div>
+      <nav class="nav_sign">
+        <a href="sign_in.html" class="login">로그인</a>
+        <a href="sign_up.html" class="logup">회원가입</a>
+      </nav>
+    </header>
     <main class="sign_up">
-        <div class="sign_box">
-            <p class="sign_text">회원가입</p>
-            <div>
-                <p class="up_t2">아이디</p>
-                <input type="text" name="" id="" placeholder="아이디를 입력해주세요" class="input_id" size="">
-                <button class="up_btn1">중복확인</button>
-            </div>
-            <div>
-                <p class="up_t2">비밀번호</p>
-                <input type="password" name="" id="" placeholder="비밀번호를 입력해주세요" class="input">
-            </div>
-            <div>
-                <p class="up_t2">비밀번호 재확인</p>
-                <input type="password" name="" id="" placeholder="비밀번호를 다시 입력해주세요" class="input">
-            </div>
-            <div class="name_num">
-                <div>
-                    <p class="up_t2">학번</p>
-                    <input type="text" name="" id="" placeholder="학번 입력" class="nn">
-                </div>
-                <div>
-                    <p class="up_t2">이름</p>
-                    <input type="text" name="" id="" placeholder="이름 입력" class="nn">
-                </div>  
-            </div>
-            <button class="ga">가입하기</button>
-            <div class="check">
-                <span class="check_t1">이미 계정이 있으신가요?</span><a href="sign_in.html" class="check_login">로그인</a>
-            </div>
-            
+      <div class="sign_box">
+        <p class="sign_text">회원가입</p>
+        <div>
+          <p class="up_t2">아이디</p>
+          <input
+            type="text"
+            placeholder="아이디를 입력해주세요"
+            class="input_id"
+            id="user_id"
+          />
+          <button class="up_btn1">중복확인</button>
         </div>
+        <div>
+          <p class="up_t2">비밀번호</p>
+          <input
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            class="input"
+            id="user_pw"
+          />
+        </div>
+        <div>
+          <p class="up_t2">비밀번호 재확인</p>
+          <input
+            type="password"
+            placeholder="비밀번호를 다시 입력해주세요"
+            class="input"
+            id="user_pw2"
+          />
+        </div>
+        <div class="name_num">
+          <div>
+            <p class="up_t2">학번</p>
+            <input
+              type="text"
+              placeholder="학번 입력"
+              class="nn"
+              id="user_num"
+            />
+          </div>
+          <div>
+            <p class="up_t2">이름</p>
+            <input
+              type="text"
+              placeholder="이름 입력"
+              class="nn"
+              id="user_name"
+            />
+          </div>
+        </div>
+        <button class="ga" onclick="accession()">가입하기</button>
+        <div class="check">
+          <span class="check_t1">이미 계정이 있으신가요?</span
+          ><a href="sign_in.html" class="check_login">로그인</a>
+        </div>
+      </div>
     </main>
     <footer class="footer"></footer>
-    
-</body>
+  </body>
 </html>
