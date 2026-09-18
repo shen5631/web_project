@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/add_dong.js" defer></script>
   </head>
   <body>
@@ -13,7 +14,7 @@
       <nav class="nav_sign">
         <a class="serch1" href="index.html">동아리 조회</a>
         <a class="create1" href="add_dong.html">게시물 생성</a>
-        <p id="name" class="name"></p>
+        <p class="name" , id="name"></p>
       </nav>
     </header>
     <main class="main1">
@@ -21,7 +22,7 @@
         <div class="form-left">
           <div>
             <p class="dong_name_t">동아리 이름</p>
-            <input type="text" id="" class="dong_name_i" />
+            <input type="text" id="dong_name" class="dong_name_i" />
           </div>
           <div>
             <p class="dong_img_t">동아리 이미지</p>
@@ -29,36 +30,37 @@
           </div>
           <div>
             <p class="dong_t_t">동아리 소개</p>
-            <input type="text" class="dong_t_i" />
+            <input type="text" class="dong_t_i" id="text" />
           </div>
         </div>
         <div class="form-right">
           <div>
             <p class="dong_cate_t">카테고리</p>
-            <select name="" id="" class="dong_cate_i">
-              <option value="">카테고리를 선택해주세요!</option>
-              <option value="">개발 & 전공</option>
-              <option value="">스포츠</option>
-              <option value="">여가</option>
-              <option value="">기타</option>
+            <select name="" id="ctg" class="dong_cate_i">
+              <option value="no">카테고리를 선택해주세요!</option>
+              <option value="soft">개발 & 전공</option>
+              <option value="sport">스포츠</option>
+              <option value="free">여가</option>
+              <option value="gita">기타</option>
             </select>
           </div>
 
           <div>
             <p class="dong_link_t">링크</p>
-            <select name="" id="" class="dong_link_i">
-              <option value="">링크를 선택해주세요!</option>
-              <option value="">네이버</option>
-              <option value="">깃허브</option>
-              <option value="">인스타</option>
-              <option value="">블로그</option>
+            <select name="" id="link" class="dong_link_i">
+              <option value="no">링크를 선택해주세요!</option>
+              <option value="naver">네이버</option>
+              <option value="git">깃허브</option>
+              <option value="insta">인스타</option>
+              <option value="blog">블로그</option>
+              <option value="gita">기타</option>
             </select>
             <button class="dong_link_btn">확인</button>
           </div>
         </div>
         <div class="dong_button">
-          <button class="back_btn">취소하기</button>
-          <button class="create_btn">생성하기</button>
+          <button class="back_btn" onclick="">취소하기</button>
+          <button class="create_btn" onclick="create()">생성하기</button>
         </div>
       </div>
     </main>
