@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/add_dong.js" defer></script>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="logo">미림 동아리 홍보</div>
+      <nav class="nav_sign">
+        <a class="serch1" href="index.html">동아리 조회</a>
+        <a class="create1" href="add_dong.html">게시물 생성</a>
+        <p id="name" class="name"></p>
+      </nav>
+    </header>
+    <main class="main1">
+      <div class="add_box">
+        <div class="form-left">
+          <div>
+            <p class="dong_name_t">동아리 이름</p>
+            <input type="text" id="" class="dong_name_i" />
+          </div>
+          <div>
+            <p class="dong_img_t">동아리 이미지</p>
+            <div class="dong_img_box"></div>
+          </div>
+          <div>
+            <p class="dong_t_t">동아리 소개</p>
+            <input type="text" class="dong_t_i" />
+          </div>
+        </div>
+        <div class="form-right">
+          <div>
+            <p class="dong_cate_t">카테고리</p>
+            <select name="" id="" class="dong_cate_i">
+              <option value="">카테고리를 선택해주세요!</option>
+              <option value="">개발 & 전공</option>
+              <option value="">스포츠</option>
+              <option value="">여가</option>
+              <option value="">기타</option>
+            </select>
+          </div>
+
+          <div>
+            <p class="dong_link_t">링크</p>
+            <select name="" id="" class="dong_link_i">
+              <option value="">링크를 선택해주세요!</option>
+              <option value="">네이버</option>
+              <option value="">깃허브</option>
+              <option value="">인스타</option>
+              <option value="">블로그</option>
+            </select>
+            <button class="dong_link_btn">확인</button>
+          </div>
+        </div>
+        <div class="dong_button">
+          <button class="back_btn">취소하기</button>
+          <button class="create_btn">생성하기</button>
+        </div>
+      </div>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>

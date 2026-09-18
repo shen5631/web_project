@@ -335,6 +335,24 @@ main{
     font-weight: 400;
     line-height: 19.5px; /* 81.25% */
 }
+.serch1{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 81.25% */
+}
+.create1{
+    color: #15803D;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 81.25% */
+}
 .ctg{
     display: flex;
     justify-content: space-between;
@@ -421,7 +439,7 @@ main{
     height: 56px;
 }
 .ct_ki{
-        display: flex;
+    display: flex;
     justify-content: center;
     align-items:center;
     border-radius: 8px;
@@ -446,6 +464,166 @@ main{
     width: 379px;
     height: 56px;
     margin-left: 600px;
+}
+.add_box {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 좌우 절반씩 */
+    gap: 40px;
+    padding: 40px;
+    margin-top: 83px;
+    margin-bottom: 83px;
+    width: 1654px;
+    /* height는 내용에 맞게 auto로 두는 게 안전함 */
+    border-radius: 18px;
+    border: 1px solid #E2E8F0;
+    background: #FFF;
+}
+.form-left,
+.form-right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* 각 필드 사이 간격 */
+}
+.dong_name_t{
+    width: 150px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 65% */
+}
+.dong_name_i{
+    width: 100%;
+    height: 61px;
+    border-radius: 18px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+}
+.dong_img_t{
+    width: 180px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 65% */
+}
+.dong_img_box{
+    width: 100%;
+    height: 404px;
+    border-radius: 18px;
+    border: 2px dashed #CBD5E1;
+    background: #FBFCFD;
+}
+.dong_t_i{
+    width: 100%;
+    height: 284px;
+    border-radius: 18px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+}
+.dong_t_t{
+    width: 148px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 65% */
+}
+.dong_cate_i{
+    width: 100%;
+    height: 61px;
+    border-radius: 18px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+    font-size: 20px;
+}
+.dong_cate_t{
+    width: 112px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 65% */
+}
+.dong_cate_i option {
+    font-size: 20px;
+}
+.dong_link_i{
+    width: 79%;
+    height: 61px;
+    border-radius: 18px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+    font-size: 20px;
+}
+.dong_link_i option {
+    font-size: 20px;
+}
+.dong_link_t{
+    width: 58px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 65% */
+}
+.dong_link_btn{
+    margin-left: 3px;
+    width: 20%;
+    height: 61px;
+    border-radius: 18px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.create_btn{
+    width: 209px;
+    height: 60px;
+    border-radius: 8px;
+    background: #15803D;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    color: #fff;
+    text-align: center;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 69.643% */
+}   
+.back_btn{
+    width: 209px;
+    height: 60px;
+    border-radius: 8px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 69.643% */
+}
+.dong_button{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
 }
 .footer {
     margin-top: auto;
