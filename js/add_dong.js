@@ -35,7 +35,9 @@ async function create() {
     link: document.getElementById("link").value,
   };
 
-  board_insert(board);
+  //board_insert(board);
 
-  console.log(board);
+  alert("게시물 생성 완료");
+
+  location.href = "index.html";
 }
