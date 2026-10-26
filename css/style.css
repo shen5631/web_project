@@ -677,3 +677,24 @@ main{
     object-fit: cover; 
     border-radius: 18px; 
 }
+
+.link_img{
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+}
+
+.link_input{
+    width: 474px;
+    height: 61px;
+    border-radius: 18px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+    margin-left: 11px;
+}   
+.link_line{
+    margin-top: 22px;
+    gap: 11px;
+    display: flex;
+    align-items:center;
+}

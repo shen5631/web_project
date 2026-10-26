@@ -39,6 +39,19 @@ const img1 = () => {
   document.getElementById("url_img").innerHTML += `<img src="${url}" alt="">`;
 };
 
+const dong_link = () => {
+  const site = {
+    naver: "../asset/naver.svg",
+    git: "../asset/git.svg",
+    insta: "../asset/insta.svg",
+    blog: "../asset/blog.svg",
+  };
+  const tag = document.getElementById("link").value;
+
+  document.getElementById("link_line").innerHTML +=
+    `<div class = "link_line"><img src="${site[tag]}" alt="" class = "link_img"><input type="text" class = "link_input"></div>`;
+};
+
 async function create() {
   const board = {
     user_id: localStorage.getItem("user_id"),
