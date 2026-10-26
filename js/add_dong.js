@@ -16,7 +16,7 @@ async function board_insert(board) {
       category: board.category,
       link: board.link,
     },
-  ]);
+  ]);   
 
   if (error) {
     console.log("에러", error);
