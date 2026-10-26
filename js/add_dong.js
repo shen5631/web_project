@@ -25,6 +25,33 @@ async function board_insert(board) {
   }
 }
 
+const img = () => {
+  const save = document.getElementById("iimg").files[0];
+  if (!save) return;
+  const url = URL.createObjectURL(save);
+  document.getElementById("url_img").innerHTML += `<img src="${url}" alt="">`;
+};
+
+const img1 = () => {
+  const save = document.getElementById("iimg1").files[0];
+  if (!save) return;
+  const url = URL.createObjectURL(save);
+  document.getElementById("url_img").innerHTML += `<img src="${url}" alt="">`;
+};
+
+const dong_link = () => {
+  const site = {
+    naver: "../asset/naver.svg",
+    git: "../asset/git.svg",
+    insta: "../asset/insta.svg",
+    blog: "../asset/blog.svg",
+  };
+  const tag = document.getElementById("link").value;
+
+  document.getElementById("link_line").innerHTML +=
+    `<div class = "link_line"><img src="${site[tag]}" alt="" class = "link_img"><input type="text" class = "link_input" id = "link_input" ></div>`;
+};
+
 async function create() {
   const board = {
     user_id: localStorage.getItem("user_id"),
@@ -34,9 +61,6 @@ async function create() {
     category: document.getElementById("ctg").value,
     link: document.getElementById("link").value,
   };
-
-  //board_insert(board);
-
   alert("게시물 생성 완료");
 
   location.href = "index.html";

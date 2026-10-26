@@ -23,7 +23,7 @@ async function login() {
     if (user.user_id == user_id && user.user_pw == user_pw) {
       alert("로그인 성공!");
       localStorage.setItem("user_id", user.user_id);
-      localStorage.setItem("user_pw", user.user_pw);
+      //localStorage.setItem("user_pw", user.user_pw);
       localStorage.setItem("user_name", user.user_name);
       localStorage.setItem("user_num", user.user_num);
       localStorage.setItem("user_auth", user.user_auth);
