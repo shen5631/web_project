@@ -27,7 +27,25 @@
           <div>
             <p class="dong_img_t">동아리 이미지</p>
             <div class="dong_img_box">
-              <input type="file" name="" id="" />
+              <label for="iimg" class="file_btn">대표 이미지</label>
+              <input
+                type="file"
+                name=""
+                id="iimg"
+                accept="image/*"
+                onchange="img()"
+                hidden
+              />
+              <label for="iimg1" class="file_btn">활동 이미지</label>
+              <input
+                type="file"
+                name=""
+                id="iimg1"
+                accept="image/*"
+                onchange="img1()"
+                hidden
+              />
+              <div id="url_img"></div>
             </div>
           </div>
           <div>

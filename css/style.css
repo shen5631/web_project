@@ -469,22 +469,23 @@ main{
 }
 .add_box {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 좌우 절반씩 */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 40px;
     padding: 40px;
     margin-top: 83px;
     margin-bottom: 83px;
     width: 1654px;
-    /* height는 내용에 맞게 auto로 두는 게 안전함 */
+    
     border-radius: 18px;
     border: 1px solid #E2E8F0;
     background: #FFF;
 }
 .form-left,
 .form-right {
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* 각 필드 사이 간격 */
+    gap: 30px; 
 }
 .dong_name_t{
     width: 150px;
@@ -514,8 +515,15 @@ main{
     line-height: 19.5px; /* 65% */
 }
 .dong_img_box{
+    min-width: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 45px;
+    overflow-x: auto;     
+    overflow-y: hidden; 
+    padding: 43px 47px; 
     width: 100%;
-    height: 404px;
+    height: auto; 
     border-radius: 18px;
     border: 2px dashed #CBD5E1;
     background: #FBFCFD;
@@ -633,4 +641,39 @@ main{
     height: 100px;
     background: #FFFFFF;
     border-top: 1px solid #E2E8F0;
+}
+.file_btn{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px; /* 65% */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 18px;
+    border: 2px dashed #CBD5E1;
+    background: #FBFCFD;
+    flex-shrink: 0; 
+}
+.main_img{
+    width: 314px;
+    height: 318px;
+}
+#url_img{
+  display: flex;          
+  gap: 30px;
+  flex-shrink: 0;                
+}
+
+#url_img img{
+    flex-shrink: 0; 
+    width: 200px;      
+    height: 200px;    
+    object-fit: cover; 
+    border-radius: 18px; 
 }

@@ -16,7 +16,7 @@ async function board_insert(board) {
       category: board.category,
       link: board.link,
     },
-  ]);   
+  ]);
 
   if (error) {
     console.log("에러", error);
@@ -24,6 +24,20 @@ async function board_insert(board) {
     console.log("성공", data);
   }
 }
+
+const img = () => {
+  const save = document.getElementById("iimg").files[0];
+  if (!save) return;
+  const url = URL.createObjectURL(save);
+  document.getElementById("url_img").innerHTML += `<img src="${url}" alt="">`;
+};
+
+const img1 = () => {
+  const save = document.getElementById("iimg1").files[0];
+  if (!save) return;
+  const url = URL.createObjectURL(save);
+  document.getElementById("url_img").innerHTML += `<img src="${url}" alt="">`;
+};
 
 async function create() {
   const board = {
