@@ -49,7 +49,7 @@ const dong_link = () => {
   const tag = document.getElementById("link").value;
 
   document.getElementById("link_line").innerHTML +=
-    `<div class = "link_line"><img src="${site[tag]}" alt="" class = "link_img"><input type="text" class = "link_input"></div>`;
+    `<div class = "link_line"><img src="${site[tag]}" alt="" class = "link_img"><input type="text" class = "link_input" id = "link_input" ></div>`;
 };
 
 async function create() {
@@ -61,9 +61,6 @@ async function create() {
     category: document.getElementById("ctg").value,
     link: document.getElementById("link").value,
   };
-
-  //board_insert(board);
-
   alert("게시물 생성 완료");
 
   location.href = "index.html";
