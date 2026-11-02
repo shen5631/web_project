@@ -1,49 +1,63 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/js/sign_in.js"></script>
-  </head>
-  <body>
-    <header class="nav">
-      <div class="logo">미림 동아리 홍보</div>
-      <nav class="nav_sign">
-        <a href="sign_in.html" class="login">로그인</a>
-        <a href="sign_up.html" class="logup">회원가입</a>
-      </nav>
-    </header>
-    <main>
-      <div class="sign_box1">
-        <p class="sign_text">로그인</p>
-        <div>
-          <p class="up_t2">아이디</p>
-          <input
-            type="text"
-            placeholder="아이디를 입력해주세요"
-            class="input"
-            id="user_id"
-          />
-        </div>
-        <div>
-          <p class="up_t2">비밀번호</p>
-          <input
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-            class="input"
-            id="user_pw"
-          />
-        </div>
-        <button class="ga" onclick="login()">로그인</button>
-        <div class="check">
-          <span class="check_t1">계정이 없으신가요?</span
-          ><a href="sign_up.html" class="check_login">회원가입</a>
-        </div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 | 미림 동아리</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="전체높이" data-page="sign_in">
+
+  <header class="헤더">
+    <a href="start_page.html" class="로고"><span class="교표">교표</span>미림 동아리</a>
+    <nav class="메뉴">
+      <a href="clubs.html">전체 동아리</a>
+      <a href="sign_in.html" class="현재">로그인</a>
+      <a href="sign_up.html" class="버튼 기본 작게">회원가입</a>
+    </nav>
+  </header>
+
+  <main class="몸통">
+    <!-- 왼쪽 패널 -->
+    <section class="패널">
+      <h1 class="패널문구">다시 오셨네요.<br>관심 있는 동아리부터<br>보여드릴게요.</h1>
+      <div class="일정">
+        <span class="캡션" style="color:#B7C7BF;">이번 학기 일정</span>
+        <div class="일정줄"><span>지원일</span><span>[지원 날짜]</span></div>
+        <div class="일정줄"><span>결과 발표</span><span>[추첨 결과 발표일]</span></div>
       </div>
-    </main>
-    <footer class="footer"></footer>
-  </body>
+    </section>
+
+    <!-- 오른쪽 폼 -->
+    <section class="폼영역">
+      <form class="폼" id="sign_in_form" novalidate>
+        <div class="폼제목">
+          <h2 class="섹션제목">로그인</h2>
+        </div>
+
+        <div class="칸">
+          <label class="라벨" for="user_num">학번</label>
+          <input class="입력칸" id="user_num" type="text" inputmode="numeric" maxlength="4" placeholder="2205">
+          <span class="오류문구" id="user_num_error"></span>
+        </div>
+
+        <div class="칸">
+          <label class="라벨" for="user_pw">비밀번호</label>
+          <input class="입력칸" id="user_pw" type="password" placeholder="비밀번호">
+          <span class="오류문구" id="user_pw_error"></span>
+        </div>
+
+        <p class="옵션줄">비밀번호를 잊었다면 관리자에게 문의하세요.</p>
+
+        <button type="submit" class="버튼 기본 꽉">로그인</button>
+        <p class="안내">아직 계정이 없나요? <a href="sign_up.html">회원가입</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/db.js"></script>
+  <script src="../js/sign_in.js"></script>
+</body>
 </html>

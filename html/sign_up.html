@@ -1,79 +1,75 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/js/sign_up.js"></script>
-  </head>
-  <body>
-    <header class="nav">
-      <div class="logo">미림 동아리 홍보</div>
-      <nav class="nav_sign">
-        <a href="sign_in.html" class="login">로그인</a>
-        <a href="sign_up.html" class="logup">회원가입</a>
-      </nav>
-    </header>
-    <main class="sign_up">
-      <div class="sign_box">
-        <p class="sign_text">회원가입</p>
-        <div>
-          <p class="up_t2">아이디</p>
-          <input
-            type="text"
-            placeholder="아이디를 입력해주세요"
-            class="input_id"
-            id="user_id"
-          />
-          <button class="up_btn1" onclick="check_id()">중복확인</button>
-        </div>
-        <div>
-          <p class="up_t2">비밀번호</p>
-          <input
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-            class="input"
-            id="user_pw"
-          />
-        </div>
-        <div>
-          <p class="up_t2">비밀번호 재확인</p>
-          <input
-            type="password"
-            placeholder="비밀번호를 다시 입력해주세요"
-            class="input"
-            id="user_pw2"
-          />
-        </div>
-        <div class="name_num">
-          <div>
-            <p class="up_t2">학번</p>
-            <input
-              type="text"
-              placeholder="학번 입력"
-              class="nn"
-              id="user_num"
-            />
-          </div>
-          <div>
-            <p class="up_t2">이름</p>
-            <input
-              type="text"
-              placeholder="이름 입력"
-              class="nn"
-              id="user_name"
-            />
-          </div>
-        </div>
-        <button class="ga" onclick="accession()">가입하기</button>
-        <div class="check">
-          <span class="check_t1">이미 계정이 있으신가요?</span
-          ><a href="sign_in.html" class="check_login">로그인</a>
-        </div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입 | 미림 동아리</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="전체높이" data-page="sign_up">
+
+  <header class="헤더">
+    <a href="start_page.html" class="로고"><span class="교표">교표</span>미림 동아리</a>
+    <nav class="메뉴">
+      <a href="clubs.html">전체 동아리</a>
+      <a href="sign_in.html">로그인</a>
+      <a href="sign_up.html" class="버튼 기본 작게">회원가입</a>
+    </nav>
+  </header>
+
+  <main class="몸통">
+    <!-- 왼쪽 패널 -->
+    <section class="패널">
+      <h1 class="패널문구">1분이면 가입 끝.<br>지원일에 헤매지 않게<br>미리 준비해 두세요.</h1>
+      <div class="일정">
+        <div class="일정줄"><span class="번호">✓</span><span>이름과 학번을 넣고</span></div>
+        <div class="일정줄"><span class="번호">✓</span><span>비밀번호를 정하면</span></div>
+        <div class="일정줄"><span class="번호">✓</span><span>지원일에 바로 지원할 수 있어요</span></div>
       </div>
-    </main>
-    <footer class="footer"></footer>
-  </body>
+    </section>
+
+    <!-- 오른쪽 폼 -->
+    <section class="폼영역">
+      <form class="폼" id="sign_up_form" style="gap: 20px;" novalidate>
+        <div class="폼제목">
+          <h2 class="섹션제목">회원가입</h2>
+        </div>
+
+        <div class="칸">
+          <label class="라벨" for="user_name">이름</label>
+          <input class="입력칸" id="user_name" type="text" placeholder="홍길동">
+          <span class="오류문구" id="user_name_error"></span>
+        </div>
+
+        <div class="칸">
+          <label class="라벨" for="user_num">학번</label>
+          <input class="입력칸" id="user_num" type="text" inputmode="numeric" maxlength="4" placeholder="2205">
+          <span class="오류문구" id="user_num_error"></span>
+        </div>
+
+        <div class="칸">
+          <label class="라벨" for="user_pw">비밀번호</label>
+          <input class="입력칸" id="user_pw" type="password" placeholder="6자 이상">
+            <span class="오류문구" id="user_pw_error"></span>
+        </div>
+
+        <div class="칸">
+          <label class="라벨" for="user_pw2">비밀번호 확인</label>
+          <input class="입력칸" id="user_pw2" type="password" placeholder="한 번 더 입력">
+          <span class="오류문구" id="user_pw2_error"></span>
+        </div>
+
+
+        <span class="오류문구" id="form_error"></span>
+        <button type="submit" class="버튼 기본 꽉">가입하기</button>
+        <p class="안내">이미 계정이 있나요? <a href="sign_in.html">로그인</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/db.js"></script>
+  <script src="../js/sign_up.js"></script>
+</body>
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>전체 동아리 | 미림 동아리</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="clubs">
+
+  <header class="헤더">
+    <a href="start_page.html" class="로고"><span class="교표">교표</span>미림 동아리</a>
+    <nav class="메뉴">
+      <a href="clubs.html" class="현재">전체 동아리</a>
+      <a href="sign_in.html">로그인</a>
+      <a href="sign_up.html" class="버튼 기본 작게">회원가입</a>
+    </nav>
+  </header>
+
+  <!-- 상단 -->
+  <section class="상단">
+    <div class="폼제목">
+      <h1 class="페이지제목">전체 동아리</h1>
+      <p class="작은본문" style="font-size: 15px;">분야를 고르거나 이름으로 찾아보세요.</p>
+    </div>
+    <form class="검색창" id="search_form">
+      <input class="입력칸" id="search_input" type="search" placeholder="동아리 이름, 키워드 검색" aria-label="동아리 검색">
+      <button type="submit" class="버튼 검정">검색</button>
+    </form>
+    <div class="분야탭" id="category_tabs"></div>
+  </section>
+
+  <!-- 결과 -->
+  <section class="결과">
+    <div class="결과줄">
+      <span>검색 결과 <strong id="result_count">0</strong>개</span>
+      <span>이름순</span>
+    </div>
+    <div class="카드그리드" id="card_grid"></div>
+    <nav class="페이지번호" id="pager" aria-label="페이지"></nav>
+  </section>
+
+  <!-- 안내띠 -->
+  <section class="진한띠 양끝">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <h2 style="font-size: 24px; font-weight: 700;">지원일: [지원 날짜] 하루</h2>
+      <p>모든 동아리가 같은 날 동시에 지원받고 마감해요. 미리 가입해 두면 바로 지원할 수 있어요.</p>
+    </div>
+  </section>
+
+  <footer class="푸터">
+    <span>미림 동아리</span>
+    <span>미림마이스터고등학교</span>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/db.js"></script>
+  <script src="../js/club_list.js"></script>
+</body>
+</html>

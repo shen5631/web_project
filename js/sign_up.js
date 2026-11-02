@@ -1,85 +1,90 @@
-const DB_URL = "https://woobttpshqvkjnjvhvis.supabase.co";
-const DB_KEY = "sb_publishable_Xx2zd7IeOrekFvPFYQLrXQ_0l61qoNe";
+// =====================================================
+// sign_up.js : 회원가입 (지금 user 테이블)
+// user_id 칸에는 학번을 그대로 넣어요.
+// =====================================================
 
-const DB = window.supabase.createClient(DB_URL, DB_KEY);
-
-async function user_id_select() {
-  const { data, error } = await DB.from("user").select("user_id");
+// 같은 학번이 이미 있는지
+async function is_num_taken(user_num) {
+  const { data, error } = await DB.from("user").select("user_num").eq("user_num", user_num);
   if (error) {
     console.log("오류 : ", error);
-    return [];
-  } else {
-    return data;
+    return false;
   }
+  return data.length > 0;
 }
 
 async function user_insert(user) {
-  const { data, error } = await DB.from("user").insert([
+  const { error } = await DB.from("user").insert([
     {
-      user_id: user.id,
+      user_id: user.num,
       user_pw: user.pw,
       user_name: user.name,
       user_num: user.num,
-      user_auth: user.auth,
+      user_auth: false,
     },
   ]);
 
   if (error) {
     console.log("오류 : ", error);
-    return [];
-  } else {
-    console.log("DB삽입 성공");
+    return false;
   }
+  return true;
 }
 
-async function check_id(params) {
-  let user_id = document.getElementById("user_id").value;
-  const users_id = await user_id_select();
-  let user_id_list = [];
-  for (const user_id of users_id) {
-    user_id_list.push(user_id.user_id);
-  }
-  if (user_id_list.indexOf(user_id) != -1) {
-    alert("이미 존재하는 아이디 입니다!");
-  } else {
-    alert("사용가능한 아이디 입니다!");
-  }
-}
+async function accession(e) {
+  e.preventDefault();
 
-async function accession() {
+  const form = e.target;
+  const button = form.querySelector('button[type="submit"]');
+  clearErrors(form);
+
   const user = {
-    id: document.getElementById("user_id").value,
+    name: document.getElementById("user_name").value.trim(),
+    num: document.getElementById("user_num").value.trim(),
     pw: document.getElementById("user_pw").value,
     pw2: document.getElementById("user_pw2").value,
-    name: document.getElementById("user_name").value,
-    num: document.getElementById("user_num").value,
-    auth: false,
   };
 
-  let null_cnt = 0;
-  for (let key in user) {
-    if (!user[key] && "auth" != key) {
-      null_cnt++;
-    }
+  let ok = true;
+  if (!user.name) {
+    showError("user_name", "이름을 입력해 주세요.");
+    ok = false;
   }
-
-  const users_id = await user_id_select();
-  let user_id_list = [];
-  for (const user_id of users_id) {
-    user_id_list.push(user_id.user_id);
+  if (!/^\d{4}$/.test(user.num)) {
+    showError("user_num", "학번 4자리를 숫자로 입력해 주세요.");
+    ok = false;
   }
+  if (user.pw.length < 6) {
+    showError("user_pw", "비밀번호는 6자 이상이어야 해요.");
+    ok = false;
+  }
+  if (user.pw !== user.pw2) {
+    showError("user_pw2", "비밀번호가 서로 달라요.");
+    ok = false;
+  }
+  if (!ok) return;
 
-  console.log(user_id_list);
+  button.disabled = true;
+  button.textContent = "가입하는 중…";
 
-  if (user.pw != user.pw2) {
-    alert("비밀번호가 다릅니다 다시 확인해주세요!");
-  } else if (null_cnt != 0) {
-    alert("입력창에 마저 입력해주세요!");
-  } else if (user_id_list.indexOf(user.id) != -1) {
-    alert("이미 존재하는 아이디 입니다!");
-  } else {
-    await user_insert(user);
+  if (await is_num_taken(user.num)) {
+    showError("user_num", "이미 가입된 학번이에요.");
+  } else if (await user_insert(user)) {
     alert("회원가입이 완료되었습니다! 로그인을 해주세요!");
     location.href = "sign_in.html";
+    return;
+  } else {
+    document.getElementById("form_error").textContent = "가입하지 못했어요. 잠시 후 다시 시도해 주세요.";
   }
+
+  button.disabled = false;
+  button.textContent = "가입하기";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (getLoginUser()) {
+    location.href = "start_page.html";
+    return;
+  }
+  document.getElementById("sign_up_form").addEventListener("submit", accession);
+});

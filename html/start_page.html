@@ -1,36 +1,96 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
-    <header class="nav">
-      <div class="logo">미림 동아리 홍보</div>
-      <nav class="nav_sign">
-        <a href="sign_in.html" class="login">로그인</a>
-        <a href="sign_up.html" class="logup">회원가입</a>
-      </nav>
-    </header>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미림 동아리</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="start">
 
-    <main>
-      <div class="main_text">
-        <h1 class="start_h1">
-          <span class="t1">미림의 모든 동아리 정보는</span
-          ><span class="t1_1">여기에서!</span>
-        </h1>
-        <p class="t2">
-          동아리를 보고싶으시면 로그인 또는 회원가입을 진행해주세요.
-        </p>
-      </div>
-      <div class="btn1">
-        <a href="sign_in.html" class="btn2_1">로그인</a>
-        <a href="sign_up.html" class="btn2_2">회원가입</a>
-      </div>
-    </main>
+  <!-- 헤더 (로그인 전) -->
+  <header class="헤더">
+    <a href="start_page.html" class="로고"><span class="교표">교표</span>미림 동아리</a>
+    <nav class="메뉴">
+      <a href="clubs.html">전체 동아리</a>
+      <a href="sign_in.html">로그인</a>
+      <a href="sign_up.html" class="버튼 기본 작게">회원가입</a>
+    </nav>
+  </header>
 
-    <footer class="footer"></footer>
-  </body>
+  <!-- 히어로 -->
+  <section class="히어로">
+    <div class="히어로글">
+      <h1 class="큰제목">게시판을 다 돌아다니지 않아도,<br>여기서 다 보여요</h1>
+      <p class="본문">흩어져 있던 미림 동아리 소개와 모집 정보를 한곳에 모았어요. 활동 내용과 지원 방법까지 한 번에 확인하세요.</p>
+      <div class="버튼들">
+        <a href="clubs.html" class="버튼 기본">전체 동아리 둘러보기 →</a>
+        <a href="sign_up.html" class="버튼 테두리">회원가입</a>
+      </div>
+    </div>
+
+    <aside class="지원일박스">
+      <div class="지원일">
+        <span class="라벨">이번 학기 지원일</span>
+        <span class="섹션제목">[지원 날짜]</span>
+        <span class="캡션">모든 동아리가 이날 하루 동시에 지원받고 마감해요</span>
+      </div>
+      <div class="박스제목줄">
+        <span class="라벨">분야별로 보기</span>
+        <span class="캡션">등록된 동아리 <span id="total_count">0</span></span>
+      </div>
+      <div id="category_list"></div>
+    </aside>
+  </section>
+
+  <!-- 동아리 둘러보기 -->
+  <section class="섹션">
+    <div class="섹션제목줄">
+      <h2 class="섹션제목">동아리 둘러보기</h2>
+      <a href="clubs.html">전체 동아리 보기 →</a>
+    </div>
+    <div class="분야탭" id="category_tabs"></div>
+    <div class="카드그리드" id="card_grid" data-limit="4"></div>
+  </section>
+
+  <!-- 이용 방법 -->
+  <section class="섹션" style="gap: 32px; border-bottom: none;">
+    <h2 class="섹션제목">이용 방법</h2>
+    <div class="단계줄">
+      <div class="단계">
+        <span class="번호">01</span>
+        <h3 class="카드제목">둘러보기</h3>
+        <p class="작은본문">분야별로 동아리를 보고 활동 내용을 확인해요.</p>
+      </div>
+      <div class="단계">
+        <span class="번호">02</span>
+        <h3 class="카드제목">지원하기</h3>
+        <p class="작은본문">지원일 하루 동안 원하는 동아리를 골라 신청해요.</p>
+      </div>
+      <div class="단계">
+        <span class="번호">03</span>
+        <h3 class="카드제목">추첨 결과 확인</h3>
+        <p class="작은본문">면접 없이 추첨으로 정해져요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="진한띠 가운데">
+    <h2 class="섹션제목" style="font-weight: 700;">지원일 전에 미리 가입해 두세요</h2>
+    <p>가입해 두면 지원일에 로그인만 하고 바로 지원할 수 있어요.</p>
+    <a href="sign_up.html" class="버튼 기본" style="margin-top: 8px;">지금 회원가입</a>
+  </section>
+
+  <footer class="푸터">
+    <span>미림 동아리</span>
+    <span>미림마이스터고등학교</span>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/db.js"></script>
+  <script src="../js/club_list.js"></script>
+</body>
 </html>

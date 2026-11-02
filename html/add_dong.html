@@ -1,93 +1,146 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/js/add_dong.js" defer></script>
-  </head>
-  <body>
-    <header class="nav">
-      <div class="logo">미림 동아리 홍보</div>
-      <nav class="nav_sign">
-        <a class="serch1" href="index.html">동아리 조회</a>
-        <a class="create1" href="add_dong.html">게시물 생성</a>
-        <p class="name" , id="name"></p>
-      </nav>
-    </header>
-    <main class="main1">
-      <div class="add_box">
-        <div class="form-left">
-          <div>
-            <p class="dong_name_t">동아리 이름</p>
-            <input type="text" id="dong_name" class="dong_name_i" />
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동아리 등록 | 미림 동아리</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="add_dong">
+ 
+  <!-- 동아리장만 오는 화면이라 로그인 후 헤더 -->
+  <header class="헤더">
+    <a href="start_page.html" class="로고"><span class="교표">교표</span>미림 동아리</a>
+    <nav class="메뉴">
+      <a href="clubs.html">전체 동아리</a>
+      <a href="add_dong.html" class="현재">동아리 등록</a>
+      <a href="#">내 페이지</a>
+      <span class="구분선"></span>
+      <a href="#" class="사용자"><span class="학번" id="header_num">2205</span><span id="header_name">홍길동님</span></a>
+      <button type="button" class="로그아웃">로그아웃</button>
+    </nav>
+  </header>
+ 
+  <section class="등록제목">
+    <h1 class="페이지제목">동아리 등록</h1>
+    <p class="작은본문" style="font-size: 15px;">여기 적은 내용이 동아리 상세 페이지에 그대로 보여요. <span class="필수">*</span> 표시는 꼭 써야 해요.</p>
+  </section>
+ 
+  <form class="등록본문" id="add_dong_form" novalidate>
+    <div class="두칸열">
+ 
+      <!-- 왼쪽: 기본 정보 -->
+      <div>
+        <h2 class="소제목">기본 정보</h2>
+ 
+        <div class="칸">
+          <label class="라벨" for="dong_name">동아리 이름 <span class="필수">*</span></label>
+          <input class="입력칸" id="dong_name" type="text" placeholder="예) 코딩부">
+          <span class="오류문구" id="dong_name_error"></span>
+        </div>
+ 
+        <div class="칸">
+          <span class="라벨">분야 <span class="필수">*</span></span>
+          <div class="분야탭" id="ctg" role="radiogroup" aria-label="분야">
+            <button type="button" class="분야버튼 켜짐" data-cat="카테고리1">카테고리1</button>
+            <button type="button" class="분야버튼" data-cat="카테고리2">카테고리2</button>
+            <button type="button" class="분야버튼" data-cat="카테고리3">카테고리3</button>
+            <button type="button" class="분야버튼" data-cat="카테고리4">카테고리4</button>
           </div>
-          <div>
-            <p class="dong_img_t">동아리 이미지</p>
-            <div class="dong_img_box">
-              <label for="iimg" class="file_btn">대표 이미지</label>
-              <input
-                type="file"
-                name=""
-                id="iimg"
-                accept="image/*"
-                onchange="img()"
-                hidden
-              />
-              <label for="iimg1" class="file_btn">활동 이미지</label>
-              <input
-                type="file"
-                name=""
-                id="iimg1"
-                accept="image/*"
-                onchange="img1()"
-                hidden
-              />
-              <div id="url_img"></div>
+        </div>
+ 
+        <div class="칸 짧게">
+          <label class="라벨" for="capacity">정원 <span class="필수">*</span></label>
+          <div class="단위줄">
+            <input class="입력칸" id="capacity" type="number" min="1" placeholder="10">
+            <span>명</span>
+          </div>
+          <span class="오류문구" id="capacity_error"></span>
+        </div>
+ 
+        <div class="칸">
+          <label class="라벨" for="summary">한 줄 소개 <span class="필수">*</span></label>
+          <input class="입력칸" id="summary" type="text" maxlength="40" placeholder="카드와 상세 페이지 맨 위에 보여요">
+          <span class="캡션 글자수" id="summary_count">0 / 40</span>
+        </div>
+ 
+        <div class="칸">
+          <label class="라벨" for="text">동아리 소개 <span class="필수">*</span></label>
+          <textarea class="입력칸" id="text" placeholder="어떤 활동을 하는지, 1년 동안 무엇을 만드는지, 어떤 학생에게 잘 맞는지 적어 주세요."></textarea>
+        </div>
+ 
+        <div class="칸">
+          <span class="라벨">링크</span>
+          <div id="link_line" style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="링크줄">
+              <select aria-label="링크 종류">
+                <option value="insta">인스타그램</option>
+                <option value="blog">블로그</option>
+                <option value="git">깃허브</option>
+                <option value="naver">네이버</option>
+              </select>
+              <input class="입력칸" type="url" placeholder="https://" aria-label="링크 주소">
+              <button type="button" class="네모버튼" aria-label="링크 삭제">×</button>
             </div>
           </div>
-          <div>
-            <p class="dong_t_t">동아리 소개</p>
-            <input type="text" class="dong_t_i" id="text" />
-          </div>
-        </div>
-        <div class="form-right">
-          <div>
-            <p class="dong_cate_t">카테고리</p>
-            <select name="" id="ctg" class="dong_cate_i">
-              <option value="no">카테고리를 선택해주세요!</option>
-              <option value="soft">개발 & 전공</option>
-              <option value="sport">스포츠</option>
-              <option value="free">여가</option>
-              <option value="gita">기타</option>
-            </select>
-          </div>
-
-          <div>
-            <p class="dong_link_t">링크</p>
-            <select name="" id="link" class="dong_link_i">
-              <option value="no">링크를 선택해주세요!</option>
-              <option value="naver">네이버</option>
-              <option value="git">깃허브</option>
-              <option value="insta">인스타</option>
-              <option value="blog">블로그</option>
-              <option value="gita">기타</option>
-            </select>
-            <button class="dong_link_btn" onclick="dong_link()">확인</button>
-          </div>
-
-          <div>
-            <div id="link_line"></div>
-          </div>
-        </div>
-        <div class="dong_button">
-          <button class="back_btn" onclick="">취소하기</button>
-          <button class="create_btn" onclick="create()">생성하기</button>
+          <button type="button" class="점선버튼" id="add_link_btn">+ 링크 추가</button>
         </div>
       </div>
-    </main>
-    <footer class="footer"></footer>
-  </body>
+ 
+      <!-- 오른쪽: 사진·영상 -->
+      <div>
+        <h2 class="소제목">사진 · 영상</h2>
+ 
+        <div class="칸">
+          <span class="라벨">대표 사진 (썸네일) <span class="필수">*</span></span>
+          <label class="올리기상자" for="thumbnail" id="thumbnail_preview">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#4D5A54" stroke-width="1.5" aria-hidden="true"><rect x="4" y="7" width="24" height="18" rx="2"/><circle cx="12" cy="13" r="2.5"/><path d="M5 23 L13 17 L19 21 L23 18 L28 22"/></svg>
+            <strong>대표 사진 올리기</strong>
+            <span class="캡션">전체 동아리 카드와 상세 페이지 맨 위에 보여요 · 가로 사진 추천</span>
+          </label>
+          <input class="숨김" id="thumbnail" type="file" accept="image/*">
+        </div>
+ 
+        <div class="칸">
+          <div class="제목줄">
+            <span class="라벨">활동 사진</span>
+            <span class="캡션" id="photo_count">3 / 6장</span>
+          </div>
+          <div class="사진그리드" id="photo_grid">
+            <div class="사진칸">[사진 1]<button type="button" class="삭제버튼" aria-label="사진 삭제">×</button></div>
+            <div class="사진칸">[사진 2]<button type="button" class="삭제버튼" aria-label="사진 삭제">×</button></div>
+            <div class="사진칸">[사진 3]<button type="button" class="삭제버튼" aria-label="사진 삭제">×</button></div>
+            <label class="빈사진칸" for="photos" aria-label="사진 추가">+</label>
+          </div>
+          <input class="숨김" id="photos" type="file" accept="image/*" multiple>
+          <span class="캡션">사진 한 장당 5MB까지 올릴 수 있어요.</span>
+        </div>
+ 
+        <div class="칸">
+          <span class="라벨">활동 영상 (유튜브 링크)</span>
+          <input class="입력칸" id="video1" type="url" placeholder="https://youtu.be/..." aria-label="영상 링크 1">
+          <input class="입력칸" id="video2" type="url" placeholder="https://youtu.be/... (선택)" aria-label="영상 링크 2">
+          <span class="캡션">영상은 유튜브에 올리고 주소만 붙여 넣어 주세요. 최대 2개.</span>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="하단버튼">
+      <a href="start_page.html" class="버튼 테두리">취소</a>
+      <button type="submit" class="버튼 기본">등록하기</button>
+    </div>
+  </form>
+ 
+  <footer class="푸터" style="border-top: 1px solid var(--선);">
+    <span>미림 동아리</span>
+    <span>미림마이스터고등학교</span>
+  </footer>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../js/db.js"></script>
+  <script src="../js/add_dong.js"></script>
+</body>
 </html>
+ 
