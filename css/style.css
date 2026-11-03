@@ -546,7 +546,7 @@ main{
     line-height: 19.5px; /* 65% */
 }
 .dong_cate_i{
-    width: 100%;
+    width: 350px;
     height: 61px;
     border-radius: 18px;
     border: 1px solid #CBD5E1;
@@ -697,4 +697,9 @@ main{
     gap: 11px;
     display: flex;
     align-items:center;
+}
+.form-right-top{
+    gap: 50px;
+    display: flex;
+    align-items: center;
 }

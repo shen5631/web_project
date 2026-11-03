@@ -2,7 +2,7 @@ const DB_URL = "https://woobttpshqvkjnjvhvis.supabase.co";
 const DB_KEY = "sb_publishable_Xx2zd7IeOrekFvPFYQLrXQ_0l61qoNe";
 
 const DB = window.supabase.createClient(DB_URL, DB_KEY);
-
+let link_cnt = 0;
 const name = localStorage.getItem("user_name");
 document.getElementById("name").innerText = name + " 학생";
 
@@ -49,19 +49,31 @@ const dong_link = () => {
   const tag = document.getElementById("link").value;
 
   document.getElementById("link_line").innerHTML +=
-    `<div class = "link_line"><img src="${site[tag]}" alt="" class = "link_img"><input type="text" class = "link_input" id = "link_input" ></div>`;
+    `<div class = "link_line"><img src="${site[tag]}" alt="" class = "link_img"><input type="text" class = "link_input" id = "link_input${link_cnt++}" ></div>`;
 };
 
 async function create() {
+
+  //링크 여러개 불러오기
+  let link_tag = "";
+  for (let i = 0; i < link_cnt; i++) {
+    let id = "link_input" + i;
+    console.log(id);
+    link_tag += document.getElementById(id).value;
+    link_tag += ",";
+  }
+
   const board = {
     user_id: localStorage.getItem("user_id"),
     name: document.getElementById("dong_name").value,
     img: null,
     text: document.getElementById("text").value,
     category: document.getElementById("ctg").value,
-    link: document.getElementById("link").value,
+    link: link_tag,
   };
+
+  console.log(board);
   alert("게시물 생성 완료");
 
-  location.href = "index.html";
+  //location.href = "index.html";
 }
