@@ -1,5 +1,5 @@
-const DB_URL = "https://woobttpshqvkjnjvhvis.supabase.co";
-const DB_KEY = "sb_publishable_Xx2zd7IeOrekFvPFYQLrXQ_0l61qoNe";
+const DB_URL = env.DB_URL;
+const DB_KEY = env.DB_KEY;
 
 const DB = window.supabase.createClient(DB_URL, DB_KEY);
 let link_cnt = 0;

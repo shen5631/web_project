@@ -12,3 +12,6 @@ function test() {
     location.href = "add_dong.html";
   }
 }
+if (localStorage.getItem("user_master") == "true") {
+  document.getElementById("board_log").innerText = "게시물 조회";
+}
