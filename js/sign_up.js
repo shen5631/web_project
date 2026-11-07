@@ -1,5 +1,5 @@
-const DB_URL = "https://woobttpshqvkjnjvhvis.supabase.co";
-const DB_KEY = "sb_publishable_Xx2zd7IeOrekFvPFYQLrXQ_0l61qoNe";
+const DB_URL = env.DB_URL;
+const DB_KEY = env.DB_KEY;
 
 const DB = window.supabase.createClient(DB_URL, DB_KEY);
 
@@ -21,6 +21,7 @@ async function user_insert(user) {
       user_name: user.name,
       user_num: user.num,
       user_auth: user.auth,
+      user_master: user.master,
     },
   ]);
 
@@ -54,6 +55,7 @@ async function accession() {
     name: document.getElementById("user_name").value,
     num: document.getElementById("user_num").value,
     auth: false,
+    master: false,
   };
 
   let null_cnt = 0;
