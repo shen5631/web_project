@@ -16,7 +16,7 @@ async function board_insert(board, main_img, sub_img) {
       user_id: board.user_id,
       name: board.name,
       img: main_img,
-      sub_img: sub_img, 
+      sub_img: sub_img,
       text: board.text,
       category: board.category,
       link: board.link,
@@ -47,14 +47,12 @@ async function main_img_add(board) {
   );
 }
 
-
 async function sub_img_add(board) {
   let sub_url = "";
   for (let i = 0; i < board.sub_files.length; i++) {
-
     const path = `/sub_${Date.now()}_${i}.png`;
     const { data, error } = await DB.storage
-      .from("sub_img") 
+      .from("sub_img")
       .upload(path, board.sub_files[i]);
 
     if (error) {
@@ -133,9 +131,8 @@ async function create() {
 
   alert("게시물 생성 완료");
   const img_url = await main_img_add(board);
-  const sub_url = await sub_img_add(board); 
-  await board_insert(board, img_url, sub_url); 
+  const sub_url = await sub_img_add(board);
+  await board_insert(board, img_url, sub_url);
 
-
-  //location.href = "index.html";
+  location.href = "index.html";
 }
