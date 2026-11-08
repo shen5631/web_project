@@ -53,7 +53,7 @@ async function print() {
     tags += `<div class="dong_main_text">`;
     tags += `<div class="dong_text">`;
     tags += `<div class="dong_title">${board.name}</div>`;
-    tags += `<div class="dong_ex">${board.text}</div>`;
+    tags += `<div class="dong_ex">${board.text.length > 18 ? board.text.slice(0,18)+"..." : board.text}</div>`;
     tags += `</div>`;
     tags += `<div class="dong_ctg_main">`;
     tags += `<span class="dong_ctg">${ctg[board.category]}</span>`;
