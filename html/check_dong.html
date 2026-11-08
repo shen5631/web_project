@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/check_dong.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/env.js" defer></script>
+    <script src="/js/check_dong.js" defer></script>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="logo">미림 동아리 홍보</div>
+      <nav class="nav_sign">
+        <a href="ban_log.html" class="serch" id="board_log">게시물 조회</a>
+        <a class="create" href="index.html">동아리 조회</a>
+        <button class="create" onclick="test()">게시물 생성</button>
+        <p id="name" class="name"></p>
+      </nav>
+    </header>
+    <main class="main1">
+      <div class="main_text">
+        <div class="box">
+          <div class="dong_main">
+            <div class="dong_img">
+              <button class="button_left"></button>
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu9tPtsZ-yAhpp_c7fQ5wk-PaEaxDNRYbLadNQV8UH9A&s=10"
+                alt=""
+                class="dong_main_img"
+                id="dong_main_img"
+              />
+              <button class="button_right"></button>
+              <div class="dong_sub">
+                <img
+                  src="https://cdn.kunews.ac.kr/news/photo/202405/42387_32571_1218.png"
+                  alt=""
+                  class="dong_img_sub"
+                />
+                <img
+                  src="https://cdn.idaegu.com/news/photo/202509/648212_337047_155.jpg"
+                  alt=""
+                  class="dong_img_sub"
+                />
+                <img src="" alt="" class="dong_img_sub" />
+                <img src="" alt="" class="dong_img_sub" />
+              </div>
+            </div>
+            <div class="dong_text">
+              <div class="dong_ct_ti">
+                <div class="dong_ctg_main">
+                  <div class="dong_ctg" id="dong_ctg">개발 & 전공</div>
+                  <div class="dong_ctg" id="dong_to">8명 지원</div>
+                </div>
+                <div class="dong_title" id="dong_title">인공지능 크리에이터</div>
+              </div>
+              <div class="br"></div>
+              <div class="dong_text_main">
+                <div class="dong_int">동아리 소개</div>
+                <div class="dong_text" id="dong_text">
+                  생성형 AI를 활용해 서비스와 콘텐츠를 직접 기획하고 만드는
+                  동아리입니다. 매주 스터디와 미니 프로젝트를 진행하고, 학기
+                  말에는 팀별 결과물을 발표합니다.
+                </div>
+              </div>
+              <div class="dong_link_main">
+                <div class="dong_link_int">링크</div>
+                <div class="dong_link">
+                  <img src="../asset/git.svg" alt="" class="dong_link_img" />
+                  <a class="dong_link_url" href="github.com/club-name"
+                    >github.com/club-name</a
+                  >
+                </div>
+                <div class="dong_link">
+                  <img src="../asset/git.svg" alt="" class="dong_link_img" />
+                  <a class="dong_link_url" href="github.com/club-name"
+                    >github.com/club-name</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dong_button">
+            <button class="dong_button_back">목록으로</button>
+            <button class="dong_button_apply">지원하기</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>
