@@ -30,6 +30,7 @@
     align-self: stretch;
 }
 .dong_img{
+    width: 278px;
     height: 210px;
     flex: 1 0 0;
     border-radius: 10px;
