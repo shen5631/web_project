@@ -46,13 +46,13 @@ async function print() {
     if (cnt % 6 == 0) {
       tags += "<div class='dong_ga'>";
     }
-    tags += `<a class="dong" id="dong" href="check_dong.html" >`;
+    tags += `<div class="dong" id="dong" onclick="check_dong('${cnt}')" >`;
     tags += `<div class="dong_main">`;
     tags += `    <img
       src="${board.img}" alt="" class="dong_img"/>`;
     tags += `<div class="dong_main_text">`;
     tags += `<div class="dong_text">`;
-    tags += `<div class="dong_title">${board.name}</div>`;
+    tags += `<div class="dong_title" id="dong_title${cnt}">${board.name}</div>`;
     tags += `<div class="dong_ex">${board.text.length > 18 ? board.text.slice(0,18)+"..." : board.text}</div>`;
     tags += `</div>`;
     tags += `<div class="dong_ctg_main">`;
@@ -61,7 +61,7 @@ async function print() {
     tags += `</div>`;
     tags += `</div>`;
     tags += `</div>`;
-    tags += `</a>`;
+    tags += `</div>`;
     if (cnt % 5 == 0) {
       tags += "</div>";
     }
@@ -71,30 +71,15 @@ async function print() {
   if (cnt % 5 != 0) {
     tags += "</div>";
   }
-  console.log(tags);
+  //console.log(tags);
   document.getElementById("dong_se").innerHTML = tags;
 }
 
 print();
 
-{
-  /* <div class="dong" id="dong">
-  <div class="dong_main">
-    <img
-      src="https://woobttpshqvkjnjvhvis.supabase.co/storage/v1/object/public/main_img/main_1794071785694.png"
-      alt=""
-      class="dong_img"
-    />
-    <div class="dong_main_text">
-      <div class="dong_text">
-        <div class="dong_title">MSG</div>
-        <div class="dong_ex">관심있는 사람은 언제나 지원하세요!</div>
-      </div>
-      <div class="dong_ctg_main">
-        <span class="dong_ctg">개발 전공</span>
-        <span class="dong_ctg">8명 지원 가능</span>
-      </div>
-    </div>
-  </div>
-</div> */
+function check_dong(id){
+  const check_name = document.getElementById("dong_title"+id).innerText;
+  console.log(check_name);
+  localStorage.setItem("dong_name",check_name);
+  location.href = "check_dong.html";
 }
