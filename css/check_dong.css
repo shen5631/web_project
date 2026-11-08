@@ -1,0 +1,240 @@
+.box{
+    display: flex;
+    width: 1654px;
+    padding: 64px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    border-radius: 18px;
+    border: 1px solid #E2E8F0;
+    background: #FFF;
+}
+.dong_main{
+    display: flex;
+    align-items: flex-start;
+    gap: 56px;
+    align-self: stretch;
+}
+.dong_img{
+    position: relative; 
+    display: flex;
+    width: 760px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.dong_main_img{
+    display: flex;
+    width: 760px;
+    height: 570px;
+    padding: 0;
+    object-fit: cover;     
+    justify-content: center;
+    align-items: flex-start;
+    gap: 608px;
+    border-radius: 18px;
+    border: 1px solid #E2E8F0;
+}
+.dong_sub{
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+.dong_img_sub{
+    width: 178px;
+    height: 134px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+}
+.dong_text{
+    display: flex;
+    height: 720px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+}
+.dong_ct_ti{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+.dong_ctg_main{
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+.dong_ctg{
+    display: flex;
+    padding: 8px 20px;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.dong_title{
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.br{
+    height: 2px;
+    flex-shrink: 0;
+    align-self: stretch;
+    background: #E2E8F0;
+}
+.dong_text_main{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1 0 0;
+    align-self: stretch;
+}
+.dong_int{
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.dong_text{
+    color: #475569;
+    font-family: "Noto Sans KR";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 38.4px */ 
+    align-self: stretch;
+    display: flex;
+    padding: 24px 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    border-radius: 18px;
+    border: 1px solid #E2E8F0;
+    background: #FBFCFD;
+}
+.dong_link_main{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+.dong_link_int{
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.dong_link{
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    align-self: stretch;
+}
+.dong_link_img{
+    width: 61px;
+    height: 61px;
+    border-radius: 18px;
+}
+.dong_link_url{
+    display: flex;
+    height: 61px;
+    padding: 0 24px;
+    align-items: center;
+    flex: 1 0 0;
+    border-radius: 18px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+    color: #14663D;
+    font-family: "Noto Sans KR";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.dong_button{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 21px;
+    align-self: stretch;
+}
+.dong_button_back{
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    width: 209px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.dong_button_apply{
+    display: flex;
+    width: 209px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #14663D;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    font-family: "Noto Sans KR";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.button_left{
+    position: absolute;
+    top: 257px;      
+    left: 20px;
+    display: flex;
+    height: 56px;
+    width: 56px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 28px;
+    border: 1px solid #E2E8F0;
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
+.button_right{
+    position: absolute;
+    top: 257px;      
+    right: 20px;
+    display: flex;
+    height: 56px;
+    width: 56px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 28px;
+    border: 1px solid #E2E8F0;
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+}
