@@ -9,7 +9,7 @@ document.getElementById("name").innerText = name + " 학생";
 //console.log("!");
 
 async function select_board() {
-  const { data, error } = await DB.from("board").select("*");
+  const { data, error } = await DB.from("board").select("*").order('id', { ascending: false });
   if (error) {
     console.log("에러 : ", error);
   } else {
