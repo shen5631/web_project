@@ -1,0 +1,100 @@
+.dong_main{
+    display: flex;
+    width: 280px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+.main_text{
+    width: 100%;
+}
+
+.ctg{
+    align-self: center;
+    margin-bottom: 50px;
+}
+.dong_se{
+
+    align-self: flex-start;
+    margin-left: 195px;
+    display: flex;
+    width: 1180px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 33px;
+}
+.dong_ga{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    align-self: stretch;
+}
+.dong_img{
+    height: 210px;
+    flex: 1 0 0;
+    border-radius: 10px;
+    
+}
+
+.dong_text{
+    display: flex;
+    padding: 0 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.dong_title{
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    align-self: stretch;
+}
+
+.dong_ex{
+    color: #444;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    align-self: stretch;
+}
+
+.dong_main_text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.dong_ctg_main{
+    display: flex;
+    padding: 8px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.dong_ctg{
+    display: flex;
+    padding: 8px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    color: #000;
+    text-align: center;
+    font-family: "Noto Sans KR";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.24px;
+}

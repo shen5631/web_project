@@ -1,7 +1,7 @@
 const name = localStorage.getItem("user_name");
 document.getElementById("name").innerText = name + " 학생";
 
-console.log("!");
+//console.log("!");
 
 function test() {
   const check = localStorage.getItem("user_auth");
@@ -15,3 +15,5 @@ function test() {
 if (localStorage.getItem("user_master") == "true") {
   document.getElementById("board_log").innerText = "게시물 조회";
 }
+
+

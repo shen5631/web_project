@@ -6,6 +6,10 @@ let link_cnt = 0;
 const name = localStorage.getItem("user_name");
 document.getElementById("name").innerText = name + " 학생";
 
+if (localStorage.getItem("user_master") == "true") {
+  document.getElementById("board_log").innerText = "게시물 조회";
+}
+
 async function board_insert(board, main_img, sub_img) {
   const { data, error } = await DB.from("board").insert([
     {
