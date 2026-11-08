@@ -39,11 +39,11 @@ async function print() {
     gita: "기타",
   };
   const boards = await select_board();
-  let cnt = 0;
-  let tags = "";
+  let cnt = 1;
+  let tags = "<div class='dong_ga'>";
 
   for (const board of boards) {
-    if (cnt % 5 == 0) {
+    if (cnt % 6 == 0) {
       tags += "<div class='dong_ga'>";
     }
     tags += `<div class="dong" id="dong">`;
@@ -67,7 +67,10 @@ async function print() {
     }
     cnt++;
   }
-  tags += "</div>";
+  cnt--;
+  if (cnt % 5 != 0) {
+    tags += "</div>";
+  }
   console.log(tags);
   document.getElementById("dong_se").innerHTML = tags;
 }
