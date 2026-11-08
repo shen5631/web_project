@@ -46,7 +46,7 @@ async function print() {
     if (cnt % 6 == 0) {
       tags += "<div class='dong_ga'>";
     }
-    tags += `<div class="dong" id="dong">`;
+    tags += `<a class="dong" id="dong" href="check_dong.html" >`;
     tags += `<div class="dong_main">`;
     tags += `    <img
       src="${board.img}" alt="" class="dong_img"/>`;
@@ -61,7 +61,7 @@ async function print() {
     tags += `</div>`;
     tags += `</div>`;
     tags += `</div>`;
-    tags += `</div>`;
+    tags += `</a>`;
     if (cnt % 5 == 0) {
       tags += "</div>";
     }
