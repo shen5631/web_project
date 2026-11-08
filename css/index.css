@@ -10,9 +10,10 @@
 }
 
 .ctg{
-    align-self: center;
+
     margin-bottom: 50px;
 }
+
 .dong_se{
 
     align-self: flex-start;
@@ -32,7 +33,6 @@
 .dong_img{
     width: 278px;
     height: 210px;
-    flex: 1 0 0;
     border-radius: 10px;
     border:2px solid #bdbdbd;
     
@@ -76,8 +76,8 @@
 
 .dong_ctg_main{
     display: flex;
-    padding: 8px 20px;
-    justify-content: center;
+    padding: 8px 8px;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
 }
