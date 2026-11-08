@@ -33,9 +33,9 @@
     height: 210px;
     flex: 1 0 0;
     border-radius: 10px;
+    border:2px solid #bdbdbd;
     
 }
-
 .dong_text{
     display: flex;
     padding: 0 8px;
