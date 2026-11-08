@@ -39,11 +39,38 @@ async function print() {
     gita: "기타",
   };
   const board = await select_board_eq();
+  const sub_img = board[0].sub_img.split(",");
+  sub_img.pop();
   document.getElementById("dong_main_img").src = board[0].img;
+  document.getElementById("dong_img_sub_1").src = board[0].img;
   document.getElementById("dong_ctg").innerText = ctg[board[0].category];
   document.getElementById("dong_to").innerText = board[0].to+"명 지원";
   document.getElementById("dong_title").innerText = board[0].name;
   document.getElementById("dong_text").innerText = board[0].text;
+  //console.log(sub_img);
+  for(let i = 0 ; i <= 2 ; i++){
+    let tag = "dong_img_sub_"+(i+2);
+    document.getElementById(tag).src = sub_img[i];
+  }
+  for(let i = 1 ; i <= 4 ; i++){
+    if(document.getElementById("dong_img_sub_"+i).src === "http://127.0.0.1:5500/html/undefined"){
+      document.getElementById("dong_img_sub_"+i).src = "../asset/Rectangle 112.png";
+    }
+  }
+  
+
+
 }
+
+async function change(id) {
+  const board = await select_board_eq();
+  const sub_img = board[0].sub_img.split(",");
+  sub_img.pop();
+  document.getElementById("dong_main_img").src =  document.getElementById("dong_img_sub_"+id).src;
+}
+
+const time_img = setInterval(()=>{
+
+})
 
 print();
