@@ -10,7 +10,7 @@ document.getElementById("name").innerText = name + " 학생";
 
 async function select_board() {
   const { data, error } = await DB.from("board")
-    .select("*")
+    .select("*,user(*)")
     .order("id", { ascending: false });
   if (error) {
     console.log("에러 : ", error);
@@ -54,10 +54,10 @@ async function print() {
     if (cnt % 6 == 0) {
       tags += "<div class='dong_ga'>";
     }
-    tags += `<div class="dong" id="dong" onclick="check_dong('${cnt}')" >`;
+    tags += `<div class="dong" id="dong" onclick="check_dong('${cnt}','${board.user.ban}')" >`;
     tags += `<div class="dong_main">`;
     tags += `    <img
-      src="${board.img}" alt="" class="dong_img"/>`;
+      src="${board.user.ban === true ? "../asset/ban.png" : board.img}" alt="" class="dong_img"/>`;
     tags += `<div class="dong_main_text">`;
     tags += `<div class="dong_text">`;
     tags += `<div class="dong_title" id="dong_title${cnt}">${board.name}</div>`;
@@ -85,9 +85,13 @@ async function print() {
 
 print();
 
-function check_dong(id) {
-  const check_name = document.getElementById("dong_title" + id).innerText;
-  console.log(check_name);
-  localStorage.setItem("dong_name", check_name);
-  location.href = "check_dong.html";
+function check_dong(id, ban) {
+  if (ban === "true") {
+    alert("정지된 사용자의 게시물 입니다.");
+  } else {
+    const check_name = document.getElementById("dong_title" + id).innerText;
+    console.log(check_name);
+    localStorage.setItem("dong_name", check_name);
+    location.href = "check_dong.html";
+  }
 }
