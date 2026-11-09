@@ -25,34 +25,46 @@ if (localStorage.getItem("user_auth") == "true") {
   document.getElementById("apply_log").href = "apply_check.html";
 }
 
+async function apply_select() {
+  const { data, error } = await DB.from("apply").select("*,user(*),board(*)");
+  if (error) {
+    console.log("에러 : ", error);
+  } else {
+    console.log("성공 : ", data);
+    return data;
+  }
+}
 
+async function print() {
+  const applys = await apply_select();
+  const ctg = {
+    soft: "개발 & 전공",
+    sport: "스포츠",
+    free: "여가",
+    gita: "기타",
+  };
+  let tag = "";
+  for (const apply of applys) {
+    if (apply.user.user_id == localStorage.getItem("user_id")) {
+      tag += `<div class="apply_check">`;
+      tag += `<img src="${apply.board.img}" alt="" class="apply_img" />`;
+      tag += `<div class="apply_text_main">`;
+      tag += `<div class="ti_ct">`;
+      tag += `<div class="apply_title">${apply.board.name}</div>`;
+      tag += `<div class="apply_ctg">${ctg[apply.board.category]}</div>`;
+      tag += `</div>`;
+      tag += `<div class="apply_text">${apply.board.text}</div>`;
+      tag += `</div>`;
+      tag += `<div class="apply_time">${apply.time}지원</div>`;
+      tag += `<button class="apply_check_button">상세 보기</button>`;
+      tag += `</div>`;
+    }
+  }
+  if(tag === ""){
+    tag = "<div class = 'apply_empty'>동아리 지원 내역 없음</div>"
+  }
+  document.getElementById("total_apply").innerHTML = tag;
+}
 
-/*
+print();
 
-          <div class="apply_check">
-            <img src="" alt="" class="apply_img" />
-            <div class="apply_text_main">
-              <div class="ti_ct">
-                <div class="apply_title">인공지능 크리에이터</div>
-                <div class="apply_ctg">개발 & 전공</div>
-              </div>
-              <div class="apply_text">관심있는 사람 누구나 지원하세요!</div>
-            </div>
-            <div class="apply_time">2026-11-03지원</div>
-            <button class="apply_check_button">상세 보기</button>
-          </div>
-          
-          <div class="apply_check">
-            <img src="" alt="" class="apply_img" />
-            <div class="apply_text_main">
-              <div class="ti_ct">
-                <div class="apply_title">인공지능 크리에이터</div>
-                <div class="apply_ctg">개발 & 전공</div>
-              </div>
-              <div class="apply_text">관심있는 사람 누구나 지원하세요!</div>
-            </div>
-            <div class="apply_time">2026-11-03지원</div>
-            <button class="apply_check_button">상세 보기</button>
-          </div>
-
-*/
