@@ -144,6 +144,14 @@
     font-weight: 400;
     line-height: normal;
 }
+.dong_link_no{
+    color: #8d8c8c;
+    font-family: "Noto Sans KR";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 .dong_link{
     display: flex;
     align-items: flex-start;
