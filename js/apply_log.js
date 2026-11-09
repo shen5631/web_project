@@ -42,6 +42,9 @@ if (localStorage.getItem("user_master") == "true") {
 }
 if (localStorage.getItem("user_auth") == "true") {
   document.getElementById("apply_log").innerText = "지원 목록";
+} else {
+  document.getElementById("apply_log").innerText = "지원 내역";
+  document.getElementById("apply_log").href = "apply_check.html";
 }
 
 async function print() {
@@ -84,17 +87,3 @@ async function print_table() {
 }
 
 print();
-
-/*
-                <tr class="apply_tr_th"><th class="apply_th">이름</th><th class="apply_th">학번</th><th class="apply_th">지원일</th></tr>
-                <tr class="apply_tr">
-                    <td class="apply_td_n">김서연</td>
-                    <td class="apply_td">1203</td>
-                    <td class="apply_td">2026.11.08</td>
-                </tr>
-                <tr class="apply_tr">
-                    <td class="apply_td_n">이도윤</td>
-                    <td class="apply_td">2103</td>
-                    <td class="apply_td">2026.11.08</td>
-                </tr>
-*/

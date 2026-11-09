@@ -9,7 +9,9 @@ document.getElementById("name").innerText = name + " 학생";
 //console.log("!");
 
 async function select_board() {
-  const { data, error } = await DB.from("board").select("*").order('id', { ascending: false });
+  const { data, error } = await DB.from("board")
+    .select("*")
+    .order("id", { ascending: false });
   if (error) {
     console.log("에러 : ", error);
   } else {
@@ -29,6 +31,12 @@ function test() {
 }
 if (localStorage.getItem("user_master") == "true") {
   document.getElementById("board_log").innerText = "게시물 조회";
+}
+if (localStorage.getItem("user_auth") == "true") {
+  document.getElementById("apply_log").innerText = "지원 목록";
+} else {
+  document.getElementById("apply_log").innerText = "지원 내역";
+  document.getElementById("apply_log").href = "apply_check.html";
 }
 
 async function print() {
@@ -53,7 +61,7 @@ async function print() {
     tags += `<div class="dong_main_text">`;
     tags += `<div class="dong_text">`;
     tags += `<div class="dong_title" id="dong_title${cnt}">${board.name}</div>`;
-    tags += `<div class="dong_ex">${board.text.length > 18 ? board.text.slice(0,18)+"..." : board.text}</div>`;
+    tags += `<div class="dong_ex">${board.text.length > 18 ? board.text.slice(0, 18) + "..." : board.text}</div>`;
     tags += `</div>`;
     tags += `<div class="dong_ctg_main">`;
     tags += `<span class="dong_ctg">${ctg[board.category]}</span>`;
@@ -77,9 +85,9 @@ async function print() {
 
 print();
 
-function check_dong(id){
-  const check_name = document.getElementById("dong_title"+id).innerText;
+function check_dong(id) {
+  const check_name = document.getElementById("dong_title" + id).innerText;
   console.log(check_name);
-  localStorage.setItem("dong_name",check_name);
+  localStorage.setItem("dong_name", check_name);
   location.href = "check_dong.html";
 }
