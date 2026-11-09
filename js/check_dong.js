@@ -75,11 +75,25 @@ async function change(id) {
 }
 
 async function left_button() {
-  
+  let now_img = Number(localStorage.getItem("check_img").slice(-1))-1;
+  if(now_img == 0) now_img = 4;
+
+  document.getElementById("dong_main_img").src = document.getElementById("dong_img_sub_"+now_img).src;
+  document.getElementById(localStorage.getItem("check_img")).className = "dong_img_sub";
+  document.getElementById("dong_img_sub_"+now_img).className = "dong_img_sub_check";
+  localStorage.setItem("check_img","dong_img_sub_"+now_img);
 }
 
 async function right_button() {
-  
+  let now_img = Number(localStorage.getItem("check_img").slice(-1))+1;
+  if(now_img == 5){
+    now_img = 1;
+  }
+
+  document.getElementById("dong_main_img").src = document.getElementById("dong_img_sub_"+now_img).src;
+  document.getElementById(localStorage.getItem("check_img")).className = "dong_img_sub";
+  document.getElementById("dong_img_sub_"+now_img).className = "dong_img_sub_check";
+  localStorage.setItem("check_img","dong_img_sub_"+now_img);
 }
 
 const time_img = setInterval(()=>{
