@@ -31,6 +31,10 @@ async function select_board_eq() {
   }
 }
 
+const time_img = setInterval(()=>{
+  right_button();
+},3000)
+
 async function print() {
   const ctg = {
     soft: "개발 & 전공",
@@ -96,8 +100,6 @@ async function right_button() {
   localStorage.setItem("check_img","dong_img_sub_"+now_img);
 }
 
-const time_img = setInterval(()=>{
 
-})
 
 print();
