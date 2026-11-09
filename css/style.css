@@ -372,11 +372,12 @@ main{
 }
 .ct_total{
     border-radius: 8px;
-    background: #15803D;
+    border: 1px solid #E5E7EB;
+    background: #FFF;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
     width: 104px;
     height: 56px;
-    color: #FFF;
+    color: #475569;
     text-align: center;
     font-family: Inter;
     font-size: 24px;
