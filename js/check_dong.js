@@ -41,6 +41,7 @@ async function print() {
   const board = await select_board_eq();
   const sub_img = board[0].sub_img.split(",");
   sub_img.pop();
+  localStorage.setItem("check_img","dong_img_sub_1");
   document.getElementById("dong_main_img").src = board[0].img;
   document.getElementById("dong_img_sub_1").src = board[0].img;
   document.getElementById("dong_ctg").innerText = ctg[board[0].category];
@@ -66,7 +67,19 @@ async function change(id) {
   const board = await select_board_eq();
   const sub_img = board[0].sub_img.split(",");
   sub_img.pop();
+  document.getElementById(localStorage.getItem("check_img")).className = "dong_img_sub";
+  document.getElementById("dong_img_sub_"+id).className = "dong_img_sub_check";
+  localStorage.setItem("check_img","dong_img_sub_"+id);
+
   document.getElementById("dong_main_img").src =  document.getElementById("dong_img_sub_"+id).src;
+}
+
+async function left_button() {
+  
+}
+
+async function right_button() {
+  
 }
 
 const time_img = setInterval(()=>{
