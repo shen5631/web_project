@@ -186,6 +186,8 @@ async function apply() {
     }
 
     insert_apply(apply);
+    alert("동아리를 성공적으로 신청을 하였습니다!")
+    location.href = "index.html";
   }
 }
 
