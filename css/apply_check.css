@@ -95,3 +95,13 @@
     font-weight: 400;
     line-height: normal;
 }
+.apply_empty {
+  width: 100%;
+  min-height: 400px;      /* 박스 높이를 줘야 세로 중앙이 의미 있음 */
+  display: flex;
+  justify-content: center; /* 가로 중앙 */
+  align-items: center;     /* 세로 중앙 */
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
