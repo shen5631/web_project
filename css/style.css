@@ -372,11 +372,12 @@ main{
 }
 .ct_total{
     border-radius: 8px;
-    background: #15803D;
+    border: 1px solid #E5E7EB;
+    background: #FFF;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
     width: 104px;
     height: 56px;
-    color: #FFF;
+    color: #475569;
     text-align: center;
     font-family: Inter;
     font-size: 24px;
@@ -536,7 +537,12 @@ main{
     border-radius: 18px;
     border: 1px solid #CBD5E1;
     background: #FFF;
+    padding: 10px;
+    font-size: 16px;
+    font-family: inherit;
+    resize: none;
 }
+
 .dong_t_t{
     width: 148px;
     color: #000;
@@ -636,6 +642,23 @@ main{
     grid-column: 1 / -1;
     display: flex;
     justify-content: flex-end;
+}
+/* 삭제하기 버튼: back_btn과 같은 크기, 위험한 동작이라 빨간색으로 구분 */
+.delete_btn{
+    width: 209px;
+    height: 60px;
+    border-radius: 8px;
+    border: 1px solid #DC2626;
+    background: #DC2626;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    color: #fff;
+    text-align: center;
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 400;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 .footer {
     margin-top: auto;

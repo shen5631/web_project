@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/apply_log.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/env.js" defer></script>
+    <script src="/js/apply_log.js" defer></script>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="logo">미림 동아리 홍보</div>
+      <nav class="nav_sign">
+        <a href="ban_log.html" class="create" id="board_log"></a>
+        <a href="apply_log.html" class="serch" id="apply_log"></a>
+        <a class="create" href="index.html">동아리 조회</a>
+        <button class="create" onclick="test()">게시물 생성</button>
+        <p id="name" class="name"></p>
+      </nav>
+    </header>
+    <main class="main1">
+      <div class="main_text">
+        <div class="select_div" id="select_div">
+
+        </div>
+        <div id="div_table">
+            <table class="table_apply" id="table_apply">
+
+            </table>
+        </div>
+      </div>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+</html>
+
+
+

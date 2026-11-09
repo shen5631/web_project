@@ -18,6 +18,28 @@ function test() {
 if (localStorage.getItem("user_master") == "true") {
   document.getElementById("board_log").innerText = "게시물 조회";
 }
+if (localStorage.getItem("user_auth") == "true") {
+  document.getElementById("apply_log").innerText = "지원 목록";
+} else {
+  document.getElementById("apply_log").innerText = "지원 내역";
+  document.getElementById("apply_log").href = "apply_check.html";
+}
+
+async function insert_apply(apply) {
+  const { data, error } = await DB.from("apply").insert([
+    {
+      user_id: apply.user_id,
+      board_id: apply.board_id,
+      time: apply.time,
+    },
+  ]);
+
+  if (error) {
+    console.log("에러 : ", error);
+  } else {
+    console.log("성공 : ", data);
+  }
+}
 
 async function select_board_eq() {
   const { data, error } = await DB.from("board")
@@ -135,23 +157,52 @@ async function link_print() {
       }
       tag += '<div class="dong_link">';
       tag += `<img src="${src}" alt="" class="dong_link_img" />`;
-      tag += `<a class="dong_link_url" href="${link}">`
-      tag += `${link}</a></div>`
-      tag
+      tag += `<a class="dong_link_url" href="${link}">`;
+      tag += `${link}</a></div>`;
+      tag;
     }
   }
 
-  if(tag =="<div class='dong_link_int'>링크</div>" ){
-    tag+="<div class = 'dong_link_no'>링크가 없습니다.</div>"
+  if (tag == "<div class='dong_link_int'>링크</div>") {
+    tag += "<div class = 'dong_link_no'>링크가 없습니다.</div>";
   }
-  document.getElementById("dong_link_main").innerHTML = tag;  
+  document.getElementById("dong_link_main").innerHTML = tag;
   console.log(tag);
 }
 
-function back(){
+async function apply() {
+  const time = new Date();
+  const board = await select_board_eq();
+  const check = confirm(`${board[0].name}에 정말로 신청하시겠습니까?`);
+  console.log(time.getFullYear(), time.getMonth() + 1, time.getDate());
+
+  if (check) {
+    const apply = {
+      user_id: localStorage.getItem("user_id"),
+      board_id: board[0].id,
+      time:
+        time.getFullYear() + "-" + (time.getMonth() + 1) + "-" + time.getDate(),
+    };
+
+    insert_apply(apply);
+    alert("동아리를 성공적으로 신청을 하였습니다!");
+    location.href = "index.html";
+  }
+}
+
+function back() {
   location.href = "index.html";
 }
 
+async function put() {
+  const board = await select_board_eq();
+  if (board[0].user_id === localStorage.getItem("user_id")) {
+    localStorage.setItem("update_name", board[0].name);
+    // console.log(board[0].name);
+    location.href = "update_dong.html";
+  } else {
+    alert("동아리를 생성한 계정이 아니므로 수정하실수 없습니다.");
+  }
+}
+
 print();
-
-

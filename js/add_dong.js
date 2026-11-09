@@ -9,6 +9,12 @@ document.getElementById("name").innerText = name + " 학생";
 if (localStorage.getItem("user_master") == "true") {
   document.getElementById("board_log").innerText = "게시물 조회";
 }
+if (localStorage.getItem("user_auth") == "true") {
+  document.getElementById("apply_log").innerText = "지원 목록";
+} else {
+  document.getElementById("apply_log").innerText = "지원 내역";
+  document.getElementById("apply_log").href = "apply_check.html";
+}
 
 async function board_insert(board, main_img, sub_img) {
   const { data, error } = await DB.from("board").insert([

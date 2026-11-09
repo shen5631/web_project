@@ -14,6 +14,19 @@
     margin-bottom: 50px;
 }
 
+.catego li{
+    cursor: pointer;
+}
+.select_total .ct_total,
+.select_soft .ct_soft,
+.select_sport .ct_sport,
+.select_free .ct_free,
+.select_gita .ct_ki{
+    background: #15803D;
+    border-color: #15803D;
+    color: #FFF;
+}
+
 .dong_se{
 
     align-self: flex-start;

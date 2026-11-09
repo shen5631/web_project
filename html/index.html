@@ -15,6 +15,7 @@
       <div class="logo">미림 동아리 홍보</div>
       <nav class="nav_sign">
         <a href="ban_log.html" class="create" id="board_log"></a>
+        <a href="apply_log.html" class="create" id="apply_log"></a>
         <a class="serch" href="index.html">동아리 조회</a>
         <button class="create" onclick="test()">게시물 생성</button>
         <p id="name" class="name"></p>
@@ -23,14 +24,14 @@
     <main class="main1">
       <div class="main_text">
         <div class="ctg">
-          <ul class="catego">
-            <li class="ct_total">전체</li>
-            <li class="ct_soft">개발 & 전공</li>
-            <li class="ct_sport">스포츠</li>
-            <li class="ct_free">여가</li>
-            <li class="ct_ki">기타</li>
+          <ul class="catego select_total" id="catego">
+            <li class="ct_total" onclick="ctg_click('')">전체</li>
+            <li class="ct_soft" onclick="ctg_click('soft')">개발 & 전공</li>
+            <li class="ct_sport" onclick="ctg_click('sport')">스포츠</li>
+            <li class="ct_free" onclick="ctg_click('free')">여가</li>
+            <li class="ct_ki" onclick="ctg_click('gita')">기타</li>
           </ul>
-          <input type="text" class="serch_ip" />
+          <input type="text" class="serch_ip" id="serch_ip" onchange="serch()" />
         </div>
         <div class="dong_se" id="dong_se">
           

@@ -1,0 +1,96 @@
+.apply_tr_th{
+    display: flex;
+    width: 1721px;
+    height: 72px;
+    padding: 0 40px;
+    align-items: center;
+    border-bottom: 1px solid #E2E8F0;
+    background: #F8FAFC;
+}
+.table_apply{
+    display: flex;
+    width: 1721px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 18px;
+    border: 1px solid #bebfc2;
+    background: #FFF;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.apply_tr{
+    display: flex;
+    width: 1721px;
+    height: 84px;
+    padding: 0 40px;
+    align-items: center;
+    border-bottom: 1px solid #E2E8F0;
+    background-color: #ffffff;
+}
+.apply_th{
+    display: flex;
+    width: 547px;
+    align-items: center;
+    flex-shrink: 0;
+    color: #475569;
+    font-family: "Noto Sans KR";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.apply_td_n{
+    display: flex;
+    width: 547px;
+    align-items: center;
+    flex-shrink: 0;
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.apply_td{
+    color: #475569;
+    font-family: "Noto Sans KR";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    width: 547px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.main_select{
+    display: flex;
+    width: 380px;
+    height: 56px;
+    padding: 0 20px 0 24px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    margin-bottom: 33px;
+    color: #000;
+    font-family: "Noto Sans KR";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.select_div{
+    width: 1721px;   
+    display: flex;
+    justify-content: flex-start;  
+}
+
+.option{
+    
+}

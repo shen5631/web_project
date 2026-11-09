@@ -8,8 +8,21 @@ document.getElementById("name").innerText = name + " 학생";
 
 //console.log("!");
 
-async function select_board() {
-  const { data, error } = await DB.from("board").select("*").order('id', { ascending: false });
+
+async function select_board(category, search_name) {
+  let query = DB.from("board")
+    .select("*,user(*)")
+    .order("id", { ascending: false });
+
+
+  if (category) {
+    query = query.eq("category", category);
+  }
+  if (search_name) {
+    query = query.eq("name", search_name);
+  }
+
+  const { data, error } = await query;
   if (error) {
     console.log("에러 : ", error);
   } else {
@@ -30,15 +43,30 @@ function test() {
 if (localStorage.getItem("user_master") == "true") {
   document.getElementById("board_log").innerText = "게시물 조회";
 }
+if (localStorage.getItem("user_auth") == "true") {
+  document.getElementById("apply_log").innerText = "지원 목록";
+} else {
+  document.getElementById("apply_log").innerText = "지원 내역";
+  document.getElementById("apply_log").href = "apply_check.html";
+}
 
-async function print() {
+
+async function print(category, search_name) {
   const ctg = {
     soft: "개발 & 전공",
     sport: "스포츠",
     free: "여가",
     gita: "기타",
   };
-  const boards = await select_board();
+  const boards = await select_board(category, search_name);
+
+
+  if (boards.length == 0) {
+    document.getElementById("dong_se").innerHTML =
+      "<p>조회된 동아리가 없습니다.</p>";
+    return;
+  }
+
   let cnt = 1;
   let tags = "<div class='dong_ga'>";
 
@@ -46,14 +74,14 @@ async function print() {
     if (cnt % 6 == 0) {
       tags += "<div class='dong_ga'>";
     }
-    tags += `<div class="dong" id="dong" onclick="check_dong('${cnt}')" >`;
+    tags += `<div class="dong" id="dong" onclick="check_dong('${cnt}','${board.user.ban}')" >`;
     tags += `<div class="dong_main">`;
     tags += `    <img
-      src="${board.img}" alt="" class="dong_img"/>`;
+      src="${board.user.ban === true ? "../asset/ban.png" : board.img}" alt="" class="dong_img"/>`;
     tags += `<div class="dong_main_text">`;
     tags += `<div class="dong_text">`;
     tags += `<div class="dong_title" id="dong_title${cnt}">${board.name}</div>`;
-    tags += `<div class="dong_ex">${board.text.length > 18 ? board.text.slice(0,18)+"..." : board.text}</div>`;
+    tags += `<div class="dong_ex">${board.text.length > 18 ? board.text.slice(0, 18) + "..." : board.text}</div>`;
     tags += `</div>`;
     tags += `<div class="dong_ctg_main">`;
     tags += `<span class="dong_ctg">${ctg[board.category]}</span>`;
@@ -77,9 +105,31 @@ async function print() {
 
 print();
 
-function check_dong(id){
-  const check_name = document.getElementById("dong_title"+id).innerText;
-  console.log(check_name);
-  localStorage.setItem("dong_name",check_name);
-  location.href = "check_dong.html";
+
+function ctg_color(select) {
+  document.getElementById("catego").className = "catego select_" + select;
+}
+
+
+function ctg_click(category) {
+  document.getElementById("serch_ip").value = "";
+  ctg_color(category == "" ? "total" : category);
+  print(category, "");
+}
+
+function serch() {
+  const search_name = document.getElementById("serch_ip").value;
+  ctg_color("total");
+  print("", search_name);
+}
+
+function check_dong(id, ban) {
+  if (ban === "true") {
+    alert("정지된 사용자의 게시물 입니다.");
+  } else {
+    const check_name = document.getElementById("dong_title" + id).innerText;
+    console.log(check_name);
+    localStorage.setItem("dong_name", check_name);
+    location.href = "check_dong.html";
+  }
 }
