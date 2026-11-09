@@ -195,6 +195,17 @@ function back(){
   location.href = "index.html";
 }
 
+async function put(){
+  const board = await select_board_eq();
+  if(board[0].user_id === localStorage.getItem("user_id")){
+    location.href = "update_dong.html";
+  }
+  else{
+    alert("동아리를 생성한 계정이 아니므로 수정하실수 없습니다.")
+  }
+
+}
+
 print();
 
 
