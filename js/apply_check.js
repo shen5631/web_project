@@ -24,3 +24,35 @@ if (localStorage.getItem("user_auth") == "true") {
   document.getElementById("apply_log").innerText = "지원 내역";
   document.getElementById("apply_log").href = "apply_check.html";
 }
+
+
+
+/*
+
+          <div class="apply_check">
+            <img src="" alt="" class="apply_img" />
+            <div class="apply_text_main">
+              <div class="ti_ct">
+                <div class="apply_title">인공지능 크리에이터</div>
+                <div class="apply_ctg">개발 & 전공</div>
+              </div>
+              <div class="apply_text">관심있는 사람 누구나 지원하세요!</div>
+            </div>
+            <div class="apply_time">2026-11-03지원</div>
+            <button class="apply_check_button">상세 보기</button>
+          </div>
+          
+          <div class="apply_check">
+            <img src="" alt="" class="apply_img" />
+            <div class="apply_text_main">
+              <div class="ti_ct">
+                <div class="apply_title">인공지능 크리에이터</div>
+                <div class="apply_ctg">개발 & 전공</div>
+              </div>
+              <div class="apply_text">관심있는 사람 누구나 지원하세요!</div>
+            </div>
+            <div class="apply_time">2026-11-03지원</div>
+            <button class="apply_check_button">상세 보기</button>
+          </div>
+
+*/
