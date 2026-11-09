@@ -8,10 +8,21 @@ document.getElementById("name").innerText = name + " 학생";
 
 //console.log("!");
 
-async function select_board() {
-  const { data, error } = await DB.from("board")
+
+async function select_board(category, search_name) {
+  let query = DB.from("board")
     .select("*,user(*)")
     .order("id", { ascending: false });
+
+
+  if (category) {
+    query = query.eq("category", category);
+  }
+  if (search_name) {
+    query = query.eq("name", search_name);
+  }
+
+  const { data, error } = await query;
   if (error) {
     console.log("에러 : ", error);
   } else {
@@ -39,14 +50,23 @@ if (localStorage.getItem("user_auth") == "true") {
   document.getElementById("apply_log").href = "apply_check.html";
 }
 
-async function print() {
+
+async function print(category, search_name) {
   const ctg = {
     soft: "개발 & 전공",
     sport: "스포츠",
     free: "여가",
     gita: "기타",
   };
-  const boards = await select_board();
+  const boards = await select_board(category, search_name);
+
+
+  if (boards.length == 0) {
+    document.getElementById("dong_se").innerHTML =
+      "<p>조회된 동아리가 없습니다.</p>";
+    return;
+  }
+
   let cnt = 1;
   let tags = "<div class='dong_ga'>";
 
@@ -84,6 +104,24 @@ async function print() {
 }
 
 print();
+
+
+function ctg_color(select) {
+  document.getElementById("catego").className = "catego select_" + select;
+}
+
+
+function ctg_click(category) {
+  document.getElementById("serch_ip").value = "";
+  ctg_color(category == "" ? "total" : category);
+  print(category, "");
+}
+
+function serch() {
+  const search_name = document.getElementById("serch_ip").value;
+  ctg_color("total");
+  print("", search_name);
+}
 
 function check_dong(id, ban) {
   if (ban === "true") {
