@@ -19,6 +19,23 @@ if (localStorage.getItem("user_master") == "true") {
   document.getElementById("board_log").innerText = "게시물 조회";
 }
 
+async function insert_apply(apply) {
+  const {data,error} = await DB.from("apply").insert([
+    {
+      user_id : apply.user_id,
+      board_id : apply.board_id,
+      time : apply.time
+    }
+  ]);
+
+  if(error){
+    console.log("에러 : ",error);
+  }
+  else{
+    console.log("성공 : ",data);
+  }
+}
+
 async function select_board_eq() {
   const { data, error } = await DB.from("board")
     .select("*")
@@ -146,6 +163,23 @@ async function link_print() {
   }
   document.getElementById("dong_link_main").innerHTML = tag;  
   console.log(tag);
+}
+
+async function apply() {
+  const time = new Date();
+  const board = await select_board_eq();
+  const check = confirm(`${board[0].name}에 정말로 신청하시겠습니까?`);
+  console.log(time.getFullYear(),time.getMonth()+1,time.getDate());
+
+  if(check){
+    const apply = {
+      user_id : localStorage.getItem("user_id"),
+      board_id : board[0].id,
+      time : time.getFullYear()+"-"+(time.getMonth()+1)+"-"+time.getDate()
+    }
+
+    insert_apply(apply);
+  }
 }
 
 function back(){
