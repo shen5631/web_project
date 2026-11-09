@@ -56,7 +56,7 @@ async function print() {
       tag += `<div class="apply_text">${apply.board.text}</div>`;
       tag += `</div>`;
       tag += `<div class="apply_time">${apply.time}지원</div>`;
-      tag += `<button class="apply_check_button">상세 보기</button>`;
+      tag += `<button class="apply_check_button" onclick = "apply_button('${apply.board.name}')">상세 보기</button>`;
       tag += `</div>`;
     }
   }
@@ -64,6 +64,12 @@ async function print() {
     tag = "<div class = 'apply_empty'>동아리 지원 내역 없음</div>"
   }
   document.getElementById("total_apply").innerHTML = tag;
+}
+
+async function apply_button(name) {
+  console.log(name);
+  localStorage.setItem("dong_name",name);
+  location.href = "check_dong.html";
 }
 
 print();
