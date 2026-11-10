@@ -75,9 +75,11 @@ async function accession() {
 
   if (user.pw != user.pw2) {
     alert("비밀번호가 다릅니다 다시 확인해주세요!");
-  } else if (null_cnt != 0) {
-    alert("입력창에 마저 입력해주세요!");
-  } else if (user_id_list.indexOf(user.id) != -1) {
+  }
+  //  else if (null_cnt != 0) {
+  //   alert("입력창에 마저 입력해주세요!");
+  // } 
+  else if (user_id_list.indexOf(user.id) != -1) {
     alert("이미 존재하는 아이디 입니다!");
   } else {
     await user_insert(user);
